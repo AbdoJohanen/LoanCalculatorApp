@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const loanType = loanTypeSelect.value;
         const loanScheme = loanSchemeSelect.value;
 
-        if (amount && years && loanType && loanScheme) {
+        if (amount && years && loanType && loanScheme && years != 0) {
             calculateLoan(amount, years, loanType, loanScheme);
         } else {
             clearTable();
