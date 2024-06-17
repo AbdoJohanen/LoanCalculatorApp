@@ -1,0 +1,47 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    > h1 {
+        margin-bottom: 2rem;
+    }
+
+    #loanForm {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin-bottom: 2rem;
+
+        .form-group {
+            
+        }
+    }
+
+    #result {
+        width: 100%;
+        margin-bottom: 4rem;
+        
+        .table-container {
+            max-height: 400px;
+            overflow-y: auto;
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+        }
+    }
+}
+
+
+#result {
+
+
+    .table-container {
+
+        .table {
+            width: 100%;
+        }
+    }
+}
