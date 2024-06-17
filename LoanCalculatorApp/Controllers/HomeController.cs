@@ -1,7 +1,5 @@
-using System.Diagnostics;
 using LoanCalculatorApp.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using LoanCalculatorApp.Models;
 using LoanCalculatorApp.Services;
 using LoanCalculatorApp.ViewModels;
 
