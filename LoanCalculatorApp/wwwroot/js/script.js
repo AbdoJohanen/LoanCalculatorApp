@@ -19,7 +19,6 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function clearTable() {
-        document.getElementById("monthlyPayment").innerText = "";
         const tableBody = document.getElementById("paymentTable");
         tableBody.innerHTML = "";
     }
@@ -46,8 +45,6 @@ document.addEventListener("DOMContentLoaded", function() {
         })
             .then(response => response.json())
             .then(data => {
-                document.getElementById("monthlyPayment").innerText = data.monthlyPayment.toFixed(2);
-                
                 const tableBody = document.getElementById("paymentTable");
                 tableBody.innerHTML = "";
                 data.payments.forEach(payment => {
@@ -59,5 +56,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 });
             });
     }
+
     checkAndSubmitForm();
 });
