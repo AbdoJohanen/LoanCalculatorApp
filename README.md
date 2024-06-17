@@ -10,7 +10,7 @@ This project is a Loan Calculator application built using ASP.NET Core. The appl
 
 ## How to Add New Loan Types
 
-1. **Create a New Loan Type Class** in `LoanTypes`:
+1. **Create a New Loan Type Class** in `LoanTypes` directory:
    ```csharp
    public class NewLoanType : Loan
    {
@@ -26,7 +26,7 @@ This project is a Loan Calculator application built using ASP.NET Core. The appl
 
 ## How to Add New Loan Schemes
 
-1. **Create a New Loan Scheme Class** in `LoanSchemes`:
+1. **Create a New Loan Scheme Class** in `LoanSchemes` directory:
    ```csharp
    public class NewLoanScheme : IPaymentScheme
    {
