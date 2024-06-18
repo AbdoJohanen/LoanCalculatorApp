@@ -37,6 +37,6 @@ This project is a Loan Calculator application built using ASP.NET Core. The appl
        }
    }
 
-2. **Register the Loan Scheme**: The `LoanSchemeService` dynamically loads all classes implementing `IPaymentScheme`. Ensure your new loan scheme is within the discoverable namespace.
+2. **Register the Loan Scheme**: The `LoanSchemeService` dynamically loads all classes implementing `PaymentScheme`. Ensure your new loan scheme is within the discoverable namespace.
 
 3. **Use the New Loan Scheme**: The new loan scheme will automatically appear in the loan scheme dropdown on the front end.   
