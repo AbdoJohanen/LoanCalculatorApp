@@ -38,7 +38,7 @@ public class HomeController : Controller
         if (loanType != null && loanScheme != null)
         {
             // Create an instance of the loan type
-            var loan = (ILoan)Activator.CreateInstance(loanType)!;
+            var loan = (ILoanType)Activator.CreateInstance(loanType)!;
             loan.Amount = loanViewModel.Amount;
             loan.Years = loanViewModel.Years;
 

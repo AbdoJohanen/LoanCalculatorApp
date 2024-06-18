@@ -3,7 +3,7 @@ using LoanCalculatorApp.ViewModels;
 
 namespace LoanCalculatorApp.Models;
 
-public abstract class Loan : ILoan
+public abstract class LoanType : ILoanType
 {
     public decimal Amount { get; set; }
     public int Years { get; set; }

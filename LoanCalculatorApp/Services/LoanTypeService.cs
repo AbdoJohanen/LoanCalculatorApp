@@ -17,7 +17,7 @@ public class LoanTypeService
         return AppDomain.CurrentDomain.GetAssemblies()
             .Where(assembly => !assembly.IsDynamic)
             .SelectMany(assembly => assembly.GetTypes())
-            .Where(t => typeof(ILoan).IsAssignableFrom(t) && t.IsClass && !t.IsAbstract)
+            .Where(t => typeof(ILoanType).IsAssignableFrom(t) && t.IsClass && !t.IsAbstract)
             .ToList();
     }
 
@@ -26,7 +26,7 @@ public class LoanTypeService
         // Return the internal name and display name
         return _loanTypes.Select(t => (
             Name: t.Name,
-            DisplayName: ((ILoan)Activator.CreateInstance(t)!).DisplayName
+            DisplayName: ((ILoanType)Activator.CreateInstance(t)!).DisplayName
         )).ToList();
     }
     

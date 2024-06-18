@@ -1,12 +1,11 @@
-using LoanCalculatorApp.Interfaces;
 using LoanCalculatorApp.ViewModels;
 
 namespace LoanCalculatorApp.Models.LoanSchemes;
 
-public class SeriesLoanScheme : IPaymentScheme
+public class SeriesLoanScheme : PaymentScheme
 {
-    public string DisplayName => "Series Loan Principle";
-    public List<Payment> CalculatePayments(decimal amount, int years, decimal interestRate)
+    public override string DisplayName => "Series Loan Principle";
+    public override List<Payment> CalculatePayments(decimal amount, int years, decimal interestRate)
     {
         var payments = new List<Payment>();
         var monthlyInterestRate = interestRate / 12;

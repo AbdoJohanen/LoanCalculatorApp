@@ -2,7 +2,7 @@ using LoanCalculatorApp.ViewModels;
 
 namespace LoanCalculatorApp.Interfaces;
 
-public interface ILoan
+public interface ILoanType
 {
     decimal Amount { get; set; }
     int Years { get; set; }
