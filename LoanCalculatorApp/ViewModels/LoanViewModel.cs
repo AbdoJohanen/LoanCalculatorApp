@@ -10,7 +10,6 @@ public class LoanViewModel
     }
     public decimal Amount { get; set; }
     public int Years { get; set; }
-    public decimal MonthlyPayment { get; set; }
     public List<Payment> Payments { get; set; }
     public string LoanType { get; set; }
     public string LoanScheme { get; set; }

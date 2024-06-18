@@ -53,15 +53,12 @@ public class HomeController : Controller
                 Years = loan.Years,
                 LoanType = loanViewModel.LoanType,
                 LoanScheme = loanViewModel.LoanScheme,
-                MonthlyPayment = payments.Count > 0 ? payments[0].TotalPayment : 0,
                 Payments = payments
             };
 
             return Json(viewModel);
         }
-        else
-        {
-            return BadRequest("Invalid loan type or loan scheme");
-        }
+
+        return BadRequest("Invalid loan type or loan scheme");
     }
 }
