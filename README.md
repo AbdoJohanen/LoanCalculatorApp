@@ -28,7 +28,7 @@ This project is a Loan Calculator application built using ASP.NET Core. The appl
 
 1. **Create a New Loan Scheme Class** in `LoanSchemes` directory:
    ```csharp
-   public class NewLoanScheme : IPaymentScheme
+   public class NewLoanScheme : PaymentScheme
    {
        public string DisplayName => "New Loan Scheme"; // User-friendly name
        public List<Payment> CalculatePayments(decimal amount, int years, decimal interestRate)
