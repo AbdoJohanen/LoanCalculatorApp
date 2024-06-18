@@ -21,15 +21,23 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function clearTable() {
-        const tableBody = document.getElementById("paymentTable");
-        tableBody.innerHTML = "";
+        document.getElementById("paymentTable").innerHTML = "";
     }
 
     loanTypeSelect.addEventListener("change", checkAndSubmitForm);
     loanSchemeSelect.addEventListener("change", checkAndSubmitForm);
-    amountInput.addEventListener("input", checkAndSubmitForm);
+    
+    amountInput.addEventListener("input", function() {
+        // Ensure only numeric values and set a maximum limit for loan amount
+        amountInput.value = amountInput.value.replace(/[^0-9]/g, '');
+        if (parseInt(amountInput.value, 10) > 10000000) {
+            amountInput.value = 10000000;
+        }
+        checkAndSubmitForm();
+    });
+
     yearsInput.addEventListener("input", function() {
-        // Remove non-numeric characters and ensure only whole numbers up to 100 years
+        // Ensure only numeric values and set a maximum limit for years
         yearsInput.value = yearsInput.value.replace(/[^0-9]/g, '');
         if (parseInt(yearsInput.value, 10) > 100) {
             yearsInput.value = 100;
