@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoanCalculatorApp", "LoanCalculatorApp\LoanCalculatorApp.csproj", "{4855EA80-C5A2-46F1-9A64-1BE45F35D57D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoanCalculatorApp.Tests", "LoanCalculatorApp.Tests\LoanCalculatorApp.Tests.csproj", "{14C978BF-7143-47D2-B17B-2EBD3A6ECD99}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{4855EA80-C5A2-46F1-9A64-1BE45F35D57D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4855EA80-C5A2-46F1-9A64-1BE45F35D57D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4855EA80-C5A2-46F1-9A64-1BE45F35D57D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14C978BF-7143-47D2-B17B-2EBD3A6ECD99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14C978BF-7143-47D2-B17B-2EBD3A6ECD99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14C978BF-7143-47D2-B17B-2EBD3A6ECD99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14C978BF-7143-47D2-B17B-2EBD3A6ECD99}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
