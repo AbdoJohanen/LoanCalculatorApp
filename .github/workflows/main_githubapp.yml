@@ -63,7 +63,7 @@ jobs:
 
       - name: Run Smoke Test
         run: |
-          $url = "https://githubappajfunction-dzaedjasc3d0h3fn.northeurope-01.azurewebsites.net/api/SmokeTest"
+          $url = "https://githubappajfunction-dzaedjasc3d0h3fn.northeurope-01.azurewebsites.net/api/SmokeTest?code=${{ secrets.FUNCTION_APP_KEY }}"
           $response = Invoke-RestMethod -Uri $url -Method Get
           if ($response.statusCode -ne 200) {
             throw "Smoke Test Failed: $($response.body)"
