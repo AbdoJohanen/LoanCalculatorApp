@@ -60,3 +60,12 @@ jobs:
           slot-name: 'Production'
           package: .
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_3E30ABC497C643028A618CFFF18FFE21 }}
+
+      - name: Run Smoke Test
+        run: |
+          $url = "https://GithubAppAJFunction.azurewebsites.net/api/SmokeTest"
+          $response = Invoke-RestMethod -Uri $url -Method Get
+          if ($response.statusCode -ne 200) {
+            throw "Smoke Test Failed: $($response.body)"
+          }
+        shell: pwsh
