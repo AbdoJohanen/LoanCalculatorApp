@@ -59,7 +59,7 @@ jobs:
         id: deploy-to-production
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'LoanCalculatorApp'
+          app-name: 'GithubApp'
           slot-name: 'Production'
           package: .
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_3E30ABC497C643028A618CFFF18FFE21 }}
