@@ -62,13 +62,13 @@ jobs:
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_3E30ABC497C643028A618CFFF18FFE21 }}
 
       - name: Run Smoke Test
-        run: |
-          run: |
-            $url = "https://githubappajfunction-dzaedjasc3d0h3fn.northeurope-01.azurewebsites.net/api/SmokeTest?code=${{ secrets.FUNCTION_APP_KEY }}"
-            $response = Invoke-RestMethod -Uri $url -Method Get
-            if ($response -eq $null -or $response.StatusCode -ne 200) {
-              throw "Smoke Test Failed: $($response.Body)"
-            } else {
-              Write-Host "Smoke Test Passed: $($response.Body)"
-            }
         shell: pwsh
+        run: |
+          $url = "https://githubappajfunction-dzaedjasc3d0h3fn.northeurope-01.azurewebsites.net/api/SmokeTest?code=${{ secrets.FUNCTION_APP_KEY }}"
+          $response = Invoke-RestMethod -Uri $url -Method Get
+          if ($response -eq $null -or $response.StatusCode -ne 200) {
+            throw "Smoke Test Failed: $response"
+          } else {
+            Write-Host "Smoke Test Passed: $response"
+          }
+        
