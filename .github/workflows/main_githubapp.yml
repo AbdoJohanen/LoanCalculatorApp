@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy ASP.Net Core app to Azure Web App - GithubApp
+name: Build and deploy ASP.Net Core app to Azure Web App - LoanCalculatorApp
 
 on:
   push:
@@ -20,37 +20,46 @@ jobs:
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '8.x'
+      
+      - name: Install dependencies
+        run: dotnet restore
 
       - name: Build with dotnet
         run: dotnet build --configuration Release
 
+      - name: Test with dotnet  
+        run: dotnet test
+
       - name: dotnet publish
-        run: dotnet publish -c Release -o "${{env.DOTNET_ROOT}}/myapp"
+        run: dotnet publish ${{ github.workspace }}\LoanCalculatorApp\LoanCalculatorApp.csproj -c Release -o ${{ github.workspace }}\publish
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
           name: .net-app
-          path: ${{env.DOTNET_ROOT}}/myapp
+          path: ${{ github.workspace }}\publish
 
   deploy:
     runs-on: windows-latest
     needs: build
+    if: github.ref == 'refs/heads/main'
     environment:
-      name: 'Production'
+      name: ${{ github.ref == 'refs/heads/main' && 'Production' }} 
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
-    
+    permissions:
+      id-token: write #This is required for requesting the JWT
+
     steps:
       - name: Download artifact from build job
         uses: actions/download-artifact@v4
         with:
           name: .net-app
-      
-      - name: Deploy to Azure Web App
-        id: deploy-to-webapp
+
+      - name: Deploy to Azure Web App Production Slot
+        id: deploy-to-production
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'GithubApp'
+          app-name: 'LoanCalculatorApp'
           slot-name: 'Production'
           package: .
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_3E30ABC497C643028A618CFFF18FFE21 }}
